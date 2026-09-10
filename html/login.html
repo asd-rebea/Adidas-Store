@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adidas | Login & Register</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Toastify CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <!-- CSS الخاص بالصفحة -->
+    <link rel="stylesheet" href="../css/login.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>ADIDAS</h1>
+        <a href="index1.html">← Back to Home</a>
+    </header>
+
+    <main class="auth-container">
+
+        <!-- Form Toggle Tabs -->
+        <div class="auth-tabs">
+            <button id="loginTabBtn" class="active" onclick="switchTab('login')">Login</button>
+            <button id="registerTabBtn" onclick="switchTab('register')">Register</button>
+        </div>
+
+        <!-- Login Form -->
+        <form id="loginForm" class="auth-form active-form">
+            <h2>Account Login</h2>
+            
+            <div class="input-group">
+                <i class="fa-solid fa-envelope"></i>
+                <input type="email" id="loginEmail" placeholder="Email Address">
+            </div>
+            <span class="error-msg" id="loginEmailError"></span>
+
+            <div class="input-group">
+                <i class="fa-solid fa-lock"></i>
+                <input type="password" id="loginPassword" placeholder="Password">
+            </div>
+            <span class="error-msg" id="loginPasswordError"></span>
+
+            <button type="submit">Login</button>
+        </form>
+
+        <!-- Register Form -->
+        <form id="registerForm" class="auth-form">
+            <h2>Create Account</h2>
+
+            <div class="input-group">
+                <i class="fa-solid fa-user"></i>
+                <input type="text" id="regName" placeholder="Full Name">
+            </div>
+            <span class="error-msg" id="regNameError"></span>
+
+            <div class="input-group">
+                <i class="fa-solid fa-envelope"></i>
+                <input type="email" id="regEmail" placeholder="Email Address">
+            </div>
+            <span class="error-msg" id="regEmailError"></span>
+
+            <div class="input-group">
+                <i class="fa-solid fa-lock"></i>
+                <input type="password" id="regPassword" placeholder="Password (Min 6 chars)">
+            </div>
+            <span class="error-msg" id="regPasswordError"></span>
+
+            <button type="submit">Register</button>
+        </form>
+
+    </main>
+
+    <footer>
+        <p>© 2026 Adidas Store</p>
+    </footer>
+
+    <!-- Toastify JS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
+    <!-- JavaScript Form Validation -->
+    <script>
+        // التبديل بين نموذج الدخول ونموذج التسجيل
+        function switchTab(tab) {
+            const loginForm = document.getElementById('loginForm');
+            const registerForm = document.getElementById('registerForm');
+            const loginBtn = document.getElementById('loginTabBtn');
+            const regBtn = document.getElementById('registerTabBtn');
+
+            if (tab === 'login') {
+                loginForm.classList.add('active-form');
+                registerForm.classList.remove('active-form');
+                loginBtn.classList.add('active');
+                regBtn.classList.remove('active');
+            } else {
+                registerForm.classList.add('active-form');
+                loginForm.classList.remove('active-form');
+                regBtn.classList.add('active');
+                loginBtn.classList.remove('active');
+            }
+            clearErrors();
+        }
+
+        function clearErrors() {
+            document.querySelectorAll('.error-msg').forEach(el => el.textContent = '');
+        }
+
+        function showToast(msg, isSuccess = true) {
+            Toastify({
+                text: msg,
+                duration: 3000,
+                gravity: "top",
+                position: "right",
+                style: { background: isSuccess ? "#2e7d32" : "#d32f2f" }
+            }).showToast();
+        }
+
+        // Validation - Login
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            clearErrors();
+            
+            let isValid = true;
+            const email = document.getElementById('loginEmail').value.trim();
+            const password = document.getElementById('loginPassword').value.trim();
+
+            if (!email || !email.includes('@')) {
+                document.getElementById('loginEmailError').textContent = "Please enter a valid email address.";
+                isValid = false;
+            }
+
+            if (!password) {
+                document.getElementById('loginPasswordError').textContent = "Password field cannot be empty.";
+                isValid = false;
+            }
+
+            if (isValid) {
+                showToast("Logged in successfully!");
+                this.reset();
+            }
+        });
+
+        // Validation - Register
+        document.getElementById('registerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            clearErrors();
+
+            let isValid = true;
+            const name = document.getElementById('regName').value.trim();
+            const email = document.getElementById('regEmail').value.trim();
+            const password = document.getElementById('regPassword').value.trim();
+
+            if (!name) {
+                document.getElementById('regNameError').textContent = "Name is required.";
+                isValid = false;
+            }
+
+            if (!email || !email.includes('@')) {
+                document.getElementById('regEmailError').textContent = "Please enter a valid email address.";
+                isValid = false;
+            }
+
+            if (password.length < 6) {
+                document.getElementById('regPasswordError').textContent = "Password must be at least 6 characters.";
+                isValid = false;
+            }
+
+            if (isValid) {
+                showToast("Account created successfully!");
+                this.reset();
+            }
+        });
+    </script>
+
+</body>
+</html>

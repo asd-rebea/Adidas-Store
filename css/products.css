@@ -1,0 +1,278 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body {
+    background-color: #1a1a1a;
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    background-color: #111;
+}
+
+header h1 {
+    font-size: 28px;
+    letter-spacing: 2px;
+}
+
+header a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+header a:hover {
+    color: #ff4d4d;
+}
+
+main {
+    flex: 1;
+    padding: 40px 5%;
+}
+
+.products-section h2 {
+    font-size: 32px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.products-section > p {
+    text-align: center;
+    color: #ccc;
+    margin-bottom: 40px;
+}
+
+
+.products-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+.product-card {
+    background: #242424;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+}
+
+
+.product-card img {
+    max-width: 90%;
+    max-height: 90%;          
+    object-fit: contain;  
+    display: block;
+    margin: auto;     
+}
+
+.product-card h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.product-card p {
+    font-size: 18px;
+    font-weight: bold;
+    color: #ff4d4d;
+    margin-bottom: 15px;
+}
+
+
+.product-card button {
+    width: 100%;
+    padding: 10px;
+    margin: 4px 0;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.product-card button:nth-of-type(1) {
+    background-color: #444;
+    color: #fff;
+}
+
+.product-card button:nth-of-type(1):hover {
+    background-color: #555;
+}
+
+.product-card button:nth-of-type(2) {
+    background-color: #e63946;
+    color: #fff;
+}
+
+.product-card button:nth-of-type(2):hover {
+    background-color: #d62828;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #111;
+    color: #777;
+}
+/* =========================
+   PROMO BAR & TABLE
+========================= */
+
+.promo-bar {
+    max-width: 1200px;
+    margin: 0 auto 30px;
+    background: #242424;
+    border-left: 4px solid #e63946;
+    padding: 12px 20px;
+    border-radius: 6px;
+    text-align: center;
+}
+
+.promo-bar p {
+    color: #fff;
+    font-size: 15px;
+}
+
+.promo-bar i {
+    color: #e63946;
+    margin-right: 8px;
+}
+
+.size-section {
+    max-width: 1200px;
+    margin: 50px auto 20px;
+    text-align: center;
+}
+
+.size-section h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.table-container {
+    overflow-x: auto;
+}
+
+.size-table {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    border-collapse: collapse;
+    background: #242424;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.size-table th, .size-table td {
+    padding: 12px;
+    border: 1px solid #333;
+    text-align: center;
+}
+
+.size-table th {
+    background-color: #e63946;
+    color: #fff;
+}
+
+/* =========================
+   MODAL STYLES
+========================= */
+
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 999;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: #222;
+    color: #fff;
+    padding: 25px;
+    border-radius: 10px;
+    width: 320px;
+    position: relative;
+    text-align: center;
+}
+
+.close-btn {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    cursor: pointer;
+    font-size: 24px;
+}
+
+#modalTitle {
+    color: #e63946;
+    margin-bottom: 10px;
+}
+
+#modalDesc {
+    font-size: 14px;
+    margin-bottom: 10px;
+    color: #ccc;
+}
+
+#modalSizes {
+    font-size: 13px;
+    color: #aaa;
+}
+/* Toast Notification - Offline Style */
+#toast-box {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  background-color: #000000;
+  color: #ffffff;
+  padding: 12px 20px;
+  border-radius: 6px;
+  border-left: 5px solid #00875a; /* خط أخضر بسيط */
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.3s ease-in-out;
+  pointer-events: none;
+}
+
+#toast-box.show {
+  opacity: 1;
+  transform: translateY(0);
+}

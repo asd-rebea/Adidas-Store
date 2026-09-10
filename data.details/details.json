@@ -1,0 +1,14 @@
+{
+  "shoe1": {
+    "title": "Adidas Running Shoes",
+    "price": "$80",
+    "description": "High performance running shoes with breathable mesh upper and ultra-light cushioning for max comfort.",
+    "sizes": "Available Sizes: 40, 41, 42, 43"
+  },
+  "shoe2": {
+    "title": "Adidas Ultraboost",
+    "price": "$100",
+    "description": "Premium shoe engineered for energy return with responsive Boost midsole and continental rubber outsole.",
+    "sizes": "Available Sizes: 41, 42, 43, 44, 45"
+  }
+}

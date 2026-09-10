@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adidas | Contact Us</title>
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Toastify CSS (للإشعارات) -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <!-- CSS الخاص بصفحة التواصل -->
+    <link rel="stylesheet" href="../css/contact.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>ADIDAS</h1>
+        <a href="index1.html">← Back to Home</a>
+    </header>
+
+    <main class="contact-container">
+
+        <h2>Contact Us</h2>
+        <p class="subtitle">We'd love to hear from you. Send us a message!</p>
+
+        <div class="contact-content">
+            
+            <!-- معلومات التواصل مع الأيقونات (Font Awesome Requirement) -->
+            <div class="contact-info">
+                <h3>Get in Touch</h3>
+                <p><i class="fa-solid fa-location-dot"></i> Sana'a, Yemen</p>
+                <p><i class="fa-solid fa-phone"></i> +967 771 898 912</p>
+                <p><i class="fa-solid fa-envelope"></i> support@adidas-yemen.com</p>
+                
+                <div class="social-icons">
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+                </div>
+            </div>
+
+            <!-- نموذج التواصل -->
+            <form id="contactForm" class="contact-form">
+                <input type="text" id="name" placeholder="Your Name" required>
+                <input type="email" id="email" placeholder="Your Email" required>
+                <textarea id="message" rows="4" placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+
+        </div>
+
+    </main>
+
+    <footer>
+        <p>© 2026 Adidas Store</p>
+    </footer>
+
+    <!-- Toastify JS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    
+    <!-- كود إشعار الـ Toast البسيط -->
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault(); // لمنع إعادة تحميل الصفحة
+            
+            // إظهار إشعار Toast عند الإرسال
+            Toastify({
+                text: "Message sent successfully!",
+                duration: 3000,
+                gravity: "top",
+                position: "right",
+                style: {
+                    background: "#2e7d32",
+                }
+            }).showToast();
+
+            this.reset(); // تفريغ الخانات
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adidas - Men's Shoes</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <script src="../js/jquerr.min.js"></script>
+    <link rel="stylesheet" href="../css/products.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>ADIDAS</h1>
+        <a href="../html/index1.html">← Back to Home</a>
+    </header>
+
+    <main>
+        <aside class="promo-bar">
+            <p><i class="fa-solid fa-fire"></i> Special Men's Offer: Get 15% OFF on Ultraboost Series!</p>
+        </aside>
+
+        <section class="products-section">
+            <h2>Men's Shoes</h2>
+            <p>Discover our latest collection of Adidas men's shoes.</p>
+
+            <div class="products-container">
+                <article class="product-card">
+                    <img src="../photo/prodect.men/photo.men.1.avif" alt="Adidas Men's Shoe">
+                    <h3>Adidas Running Shoes</h3>
+                    <p>$80</p>
+                    <button onclick="loadModalAjax('shoe1')">View Details</button>
+                    <button>Add to Cart</button>
+                </article>
+
+                <article class="product-card">
+                    <img src="../photo/prodect.men/photo.men.2.avif" alt="Adidas Men's Shoe">
+                    <h3>Adidas Sport Shoes</h3>
+                    <p>$75</p>
+                    <button onclick="loadModalAjax('shoe2')">View Details</button>
+                    <button>Add to Cart</button>
+                </article>
+
+                <article class="product-card">
+                    <img src="../photo/prodect.men/photo.men.3.avif" alt="Adidas Men's Shoe">
+                    <h3>Adidas Ultraboost</h3>
+                    <p>$100</p>
+                    <button onclick="loadModalAjax('shoe3')">View Details</button>
+                    <button>Add to Cart</button>
+                </article>
+
+                <article class="product-card">
+                    <img src="../photo/prodect.men/photo.men.4.avif" alt="Adidas Men's Shoe">
+                    <h3>Adidas Street Shoes</h3>
+                    <p>$70</p>
+                    <button onclick="loadModalAjax('shoe1')">View Details</button>
+                    <button>Add to Cart</button>
+                </article>
+
+                <article class="product-card">
+                    <img src="../photo/prodect.men/photo.men.5.avif" alt="Adidas Men's Shoe">
+                    <h3>Adidas Training Shoes</h3>
+                    <p>$85</p>
+                    <button onclick="loadModalAjax('shoe2')">View Details</button>
+                    <button>Add to Cart</button>
+                </article>
+
+                <article class="product-card">
+                    <img src="../photo/prodect.men/photo.men.6.avif" alt="Adidas Men's Shoe">
+                    <h3>Adidas Casual Shoes</h3>
+                    <p>$65</p>
+                    <button onclick="loadModalAjax('shoe3')">View Details</button>
+                    <button>Add to Cart</button>
+                </article>
+            </div>
+        </section>
+
+        <section class="size-section">
+            <h2>Men's Size Guide</h2>
+            <div class="table-container">
+                <table class="size-table">
+                    <thead>
+                        <tr>
+                            <th>US Size</th>
+                            <th>UK Size</th>
+                            <th>EU Size</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>8</td><td>7.5</td><td>41</td></tr>
+                        <tr><td>9</td><td>8.5</td><td>42</td></tr>
+                        <tr><td>10</td><td>9.5</td><td>43.5</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 Adidas Store</p>
+    </footer>
+
+    <!-- Modal Box -->
+    <div id="productModal" class="modal-overlay">
+        <div class="modal-content">
+            <span id="closeModal" class="close-btn">&times;</span>
+            <h3 id="modalTitle"></h3>
+            <p id="modalDesc"></p>
+            <p id="modalSizes"></p>
+        </div>
+    </div>
+
+   <script>
+    // 1. بيانات المنتجات للـ Modal
+    var productsData = {
+        "shoe1": {
+            "title": "Adidas Running Shoes",
+            "price": "$80",
+            "description": "High performance running shoes with breathable mesh upper and ultra-light cushioning for max comfort.",
+            "sizes": "Available Sizes: 40, 41, 42, 43"
+        },
+        "shoe2": {
+            "title": "Adidas Sport Shoes",
+            "price": "$75",
+            "description": "Durable sport shoes built for high agility, flexible movement, and all-day comfort.",
+            "sizes": "Available Sizes: 39, 40, 41, 42"
+        },
+        "shoe3": {
+            "title": "Adidas Ultraboost",
+            "price": "$100",
+            "description": "Premium shoe engineered for energy return with responsive Boost midsole and continental rubber outsole.",
+            "sizes": "Available Sizes: 41, 42, 43, 44, 45"
+        }
+    };
+
+    // 2. دالة فتح الـ Modal
+    function loadModalAjax(productId) {
+        if (productsData[productId]) {
+            document.getElementById('modalTitle').innerText = productsData[productId].title + ' - ' + productsData[productId].price;
+            document.getElementById('modalDesc').innerText = productsData[productId].description;
+            document.getElementById('modalSizes').innerText = productsData[productId].sizes;
+            document.getElementById('productModal').style.display = 'flex';
+        } else {
+            alert('Product details not found');
+        }
+    }
+
+    // 3. إغلاق الـ Modal
+    document.getElementById('closeModal').onclick = function() {
+        document.getElementById('productModal').style.display = 'none';
+    };
+
+    window.onclick = function(e) {
+        var modal = document.getElementById('productModal');
+        if (e.target === modal) {
+            modal.style.display = 'none';
+        }
+    };
+
+    // 4. دالة إظهار الإشعار (Toast)
+    function showToast(message) {
+        let toast = document.getElementById("toast-box");
+        
+        // إنشاء العنصر إذا لم يكن موجوداً
+        if (!toast) {
+            toast = document.createElement("div");
+            toast.id = "toast-box";
+            document.body.appendChild(toast);
+        }
+
+        toast.innerHTML = `<span>✔</span> ${message || 'Added to cart successfully!'}`;
+        toast.classList.add("show");
+
+        setTimeout(() => {
+            toast.classList.remove("show");
+        }, 2500);
+    }
+
+    // 5. ربط جميع أزرار Add to Cart بالصفحة تلقائياً
+    document.addEventListener("DOMContentLoaded", function () {
+        // يبحث عن أي زر يحتوي على نص Add to Cart أو كلاس add-to-cart
+        const buttons = document.querySelectorAll("button");
+        buttons.forEach(button => {
+            if (button.innerText.trim() === "Add to Cart" || button.classList.contains("add-to-cart")) {
+                button.addEventListener("click", function (e) {
+                    e.preventDefault();
+                    showToast("Product added to cart successfully!");
+                });
+            }
+        });
+    });
+</script>
+</body>
+</html>

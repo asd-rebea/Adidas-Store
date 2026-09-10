@@ -1,0 +1,321 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+
+/* =========================
+   BODY
+========================= */
+
+body {
+    background: linear-gradient(#111, #222);
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    position: relative;
+    padding: 30px 0;
+}
+
+
+/* Red Circle */
+
+body::after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    background: red;
+    position: absolute;
+    z-index: 1;
+    clip-path: circle(40% at right 70%);
+}
+
+
+/* =========================
+   CONTAINER
+========================= */
+
+.container {
+    width: 80%;
+    min-height: 80vh;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    position: relative;
+    z-index: 2;
+    padding-bottom: 25px;
+    overflow: hidden;
+}
+
+
+/* =========================
+   NAVIGATION
+========================= */
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    margin: auto;
+    padding: 20px 0;
+}
+
+nav .logo {
+    color: #fff;
+    text-decoration: none;
+    font-size: 32px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: 700;
+}
+
+nav ul {
+    list-style: none;
+}
+
+nav ul li {
+    display: inline-block;
+    margin: 0 6px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+nav ul li a:hover {
+    color: rgb(133, 35, 35);
+}
+
+
+/* =========================
+   HOME CONTENT
+========================= */
+
+.content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    margin: auto;
+    padding: 20px 0 50px;
+}
+
+.content .text {
+    color: #fff;
+    width: 40%;
+}
+
+.content .text h2 {
+    font-size: 40px;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.content .text p {
+    font-size: 18px;
+    line-height: 25px;
+    margin: 5px 0;
+    letter-spacing: 1px;
+}
+
+.content .image {
+    width: 40%;
+    display: flex;
+    justify-content: center;
+}
+
+.content .image img {
+    max-width: 100%;
+    height: auto;
+}
+
+
+/* =========================
+   WOWSLIDER
+========================= */
+
+.slider-section {
+    width: 80%;
+    margin: 0 auto 40px;
+    text-align: center;
+    clear: both;
+}
+
+.slider-section h2 {
+    color: #fff;
+    font-size: 28px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+#wowslider-container1 {
+    width: 100%;
+    max-width: 650px;
+    margin: auto;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    width: 80%;
+    margin: 20px auto 0;
+    padding: 15px 0;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    clear: both;
+}
+
+footer p {
+    color: #fff;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (min-width: 950px) and (max-width: 1150px) {
+
+    .content .image img {
+        width: 330px;
+    }
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 950px) {
+
+    nav {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav ul {
+        text-align: center;
+    }
+
+    nav ul li {
+        margin: 0 4px;
+    }
+
+    nav ul li a {
+        font-size: 16px;
+    }
+
+    .content {
+        flex-direction: column;
+        justify-content: center;
+        gap: 25px;
+        padding-bottom: 40px;
+    }
+
+    .content .text {
+        width: 100%;
+        text-align: center;
+    }
+
+    .content .text h2 {
+        font-size: 28px;
+    }
+
+    .content .text p {
+        font-size: 16px;
+    }
+
+    .content .image {
+        width: 100%;
+    }
+
+    .content .image img {
+        width: 250px;
+    }
+
+    .slider-section {
+        width: 90%;
+    }
+
+    #wowslider-container1 {
+        width: 100%;
+        max-width: 500px;
+    }
+
+    body::after {
+        clip-path: circle(50% at bottom);
+    }
+}
+
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    body {
+        padding: 15px 0;
+    }
+
+    .container {
+        width: 94%;
+    }
+
+    nav {
+        width: 90%;
+    }
+
+    nav .logo {
+        font-size: 27px;
+    }
+
+    nav ul li a {
+        font-size: 14px;
+    }
+
+    .content {
+        width: 90%;
+    }
+
+    .content .text h2 {
+        font-size: 24px;
+    }
+
+    .content .text p {
+        font-size: 14px;
+        line-height: 22px;
+    }
+
+    .content .image img {
+        width: 220px;
+    }
+
+    .slider-section h2 {
+        font-size: 23px;
+    }
+
+    footer {
+        width: 90%;
+    }
+}
+
+#wowslider-container1 {
+    background: transparent !important;
+}
